@@ -1,0 +1,52 @@
+<component name="libraryTable">
+  <library name="Google App Engine SDK" type="python">
+    <CLASSES>
+      <root url="file://D:/App/GoogleApplicationEngine" />
+      <root url="file://D:/App/GoogleApplicationEngine/lib/antlr3" />
+      <root url="file://D:/App/GoogleApplicationEngine/lib/apiclient" />
+      <root url="file://D:/App/GoogleApplicationEngine/lib/argparse" />
+      <root url="file://D:/App/GoogleApplicationEngine/lib/cacerts" />
+      <root url="file://D:/App/GoogleApplicationEngine/lib/cherrypy" />
+      <root url="file://D:/App/GoogleApplicationEngine/lib/concurrent" />
+      <root url="file://D:/App/GoogleApplicationEngine/lib/deprecated_enum" />
+      <root url="file://D:/App/GoogleApplicationEngine/lib/distutils" />
+      <root url="file://D:/App/GoogleApplicationEngine/lib/docker" />
+      <root url="file://D:/App/GoogleApplicationEngine/lib/endpoints-1.0" />
+      <root url="file://D:/App/GoogleApplicationEngine/lib/fancy_urllib" />
+      <root url="file://D:/App/GoogleApplicationEngine/lib/google-api-python-client" />
+      <root url="file://D:/App/GoogleApplicationEngine/lib/graphy" />
+      <root url="file://D:/App/GoogleApplicationEngine/lib/grizzled" />
+      <root url="file://D:/App/GoogleApplicationEngine/lib/httplib2" />
+      <root url="file://D:/App/GoogleApplicationEngine/lib/ipaddr" />
+      <root url="file://D:/App/GoogleApplicationEngine/lib/jinja2-2.6" />
+      <root url="file://D:/App/GoogleApplicationEngine/lib/markupsafe-0.15" />
+      <root url="file://D:/App/GoogleApplicationEngine/lib/markupsafe-0.23" />
+      <root url="file://D:/App/GoogleApplicationEngine/lib/mox" />
+      <root url="file://D:/App/GoogleApplicationEngine/lib/oauth2" />
+      <root url="file://D:/App/GoogleApplicationEngine/lib/oauth2client" />
+      <root url="file://D:/App/GoogleApplicationEngine/lib/oauth2client_devserver" />
+      <root url="file://D:/App/GoogleApplicationEngine/lib/portpicker" />
+      <root url="file://D:/App/GoogleApplicationEngine/lib/prettytable" />
+      <root url="file://D:/App/GoogleApplicationEngine/lib/protorpc-1.0" />
+      <root url="file://D:/App/GoogleApplicationEngine/lib/PyAMF-0.6.1" />
+      <root url="file://D:/App/GoogleApplicationEngine/lib/PyAMF-0.7.2" />
+      <root url="file://D:/App/GoogleApplicationEngine/lib/pyasn1" />
+      <root url="file://D:/App/GoogleApplicationEngine/lib/pyasn1_modules" />
+      <root url="file://D:/App/GoogleApplicationEngine/lib/python-gflags" />
+      <root url="file://D:/App/GoogleApplicationEngine/lib/requests" />
+      <root url="file://D:/App/GoogleApplicationEngine/lib/rsa" />
+      <root url="file://D:/App/GoogleApplicationEngine/lib/setuptools-0.6c11" />
+      <root url="file://D:/App/GoogleApplicationEngine/lib/simplejson" />
+      <root url="file://D:/App/GoogleApplicationEngine/lib/six" />
+      <root url="file://D:/App/GoogleApplicationEngine/lib/sqlcmd" />
+      <root url="file://D:/App/GoogleApplicationEngine/lib/uritemplate" />
+      <root url="file://D:/App/GoogleApplicationEngine/lib/websocket" />
+      <root url="file://D:/App/GoogleApplicationEngine/lib/werkzeug-0.11.10" />
+      <root url="file://D:/App/GoogleApplicationEngine/lib/django-1.9" />
+      <root url="file://D:/App/GoogleApplicationEngine/lib/webapp2-2.5.2" />
+      <root url="file://D:/App/GoogleApplicationEngine/lib/webob-1.2.3" />
+      <root url="file://D:/App/GoogleApplicationEngine/lib/yaml-3.10" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>
