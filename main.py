@@ -28,6 +28,8 @@ from handlers.view_cd import ViewCDHandler
 from handlers.view_group import ViewGroupHandler
 from handlers.remove import RemoveHandler
 from handlers.edit import EditHandler
+from handlers.edit_cd import EditCDHandler
+from handlers.edit_group import EditGroupHandler
 from handlers.error import ErrorHandler
 
 
@@ -59,6 +61,8 @@ app = webapp2.WSGIApplication([
     ('/add_cd', AddCDHandler),
     ('/add_group', AddGroupHandler),
     ('/edit', EditHandler),
+    ('/edit_cd', EditCDHandler),
+    ('/edit_group', EditGroupHandler),
     ('/remove', RemoveHandler),
     ('/error', ErrorHandler)
 ], debug=True)

@@ -16,5 +16,12 @@
             <th>{% trans %} Members {% endtrans %}:</th>
             <td>{{ group.members }}</td>
         </tr>
+        <tr>
+            <th>{% trans %} Options {% endtrans %}:</th>
+            <td>
+                <a href="/edit_group?key={{group.key.urlsafe()}}">{% trans %} Edit {% endtrans %}</a>
+                <a href="/remove?key={{group.key.urlsafe()}}">{% trans %} Remove {% endtrans %}</a>
+            </td>
+        </tr>
     </table>
 </div>

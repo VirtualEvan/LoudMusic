@@ -35,30 +35,12 @@
                 </script>
             </td>
         </tr>
-    </table>
-</div>
-
-<div class="large-6 columns">
-    <table class="vertical-table">
         <tr>
-            <th>{% trans %} Title {% endtrans %}:</th>
-            <td>{{ cd.title }}</td>
-        </tr>
-        <tr>
-            <th>{% trans %} Record company {% endtrans %}:</th>
-            <td>{{ cd.record_company }}</td>
-        </tr>
-        <tr>
-            <th>{% trans %} Publication date {% endtrans %}:</th>
-            <td>{{ cd.publication_date|date_format }}</td>
-        </tr>
-        <tr>
-            <th>{% trans %} Group {% endtrans %}:</th>
-            <td>{{ cd.group.get().name }}</td>
-        </tr>
-        <tr>
-            <th>{% trans %} Description {% endtrans %}:</th>
-            <td>{{ cd.description }}</td>
+            <th>{% trans %} Options {% endtrans %}:</th>
+            <td>
+                <a href="/edit_cd?key={{cd.key.urlsafe()}}">{% trans %} Edit {% endtrans %}</a>
+                <a href="/remove?key={{cd.key.urlsafe()}}">{% trans %} Remove {% endtrans %}</a>
+            </td>
         </tr>
     </table>
 </div>

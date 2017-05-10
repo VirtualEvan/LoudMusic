@@ -1,34 +1,4 @@
 <div id="dvHeader">
-    <p>
-        <table width="100%">
-            <tr>
-                <td width="80%"><b>Logout</b> <a href="{{access_link}}">{{user_name}}</a></td>
-                <td width="20%">SeriesWatchMan</td>
-            </tr>
-        </table>
-    </p>
-</div>
-<div id="dvTitle">
-<p>Siguiendo las series</p>
-</div>
-<div id="dvSeries">
-    {% for serie in series %}
-            <div id="tblSeries">
-            <p align="right"><img src="{{serie.picture}}"/></p>
-            <p>
-            <b>{{serie.name}}</b> <i>({{serie.added}})</i>
-            <br>{{serie.lastEpisode // 1000}}x{{serie.lastEpisode % 1000}}
-            <br><a target="_blank" href="{{serie.web}}">Web</a>
-            <br>{{serie.comments}}
-            </p>
-            <a href="/nextEpisode?id={{serie.key.urlsafe()}}"><img width="16px" height="16px" title="next episode" class="styled-button" src="/res/up.svg"/></a>
-            <a href="/nextSeason?id={{serie.key.urlsafe()}}"><img width="16px" height="16px" title="next season" class="styled-button" src="/res/double-up.svg"/></a>
-            <a href="/modify?id={{serie.key.urlsafe()}}"><img width="16px" height="16px" title="modify" class="styled-button" src="/res/modify.svg"/></a>
-            <a href="/delete?id={{serie.key.urlsafe()}}"><img width="16px" height="16px" title="delete" class="styled-button" src="/res/delete.svg"/></a>
-            </div>
-            <br/>
-    {% endfor %}
-</div>
-<div id="dvActions">
-    <a href="/add"><img height="24px" width="24px" title="add" class="styled-button" src="/res/add.svg"/></a>
+    <h2> {%trans%}Welcome to LoudMusic {%endtrans%} </h2>
+    <h5> {%trans%}Here you can find everything about CDs and groups {%endtrans%} </h5>
 </div>

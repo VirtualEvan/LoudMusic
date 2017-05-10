@@ -1,18 +1,18 @@
 <div class="form large-12 medium-8 columns">
-	<form id="add_cd" action="/add?type=cd" method="post">
+	<form id="add_cd" action="/edit_cd?key={{cd.key.urlsafe()}}" method="post">
         <fieldset>
             <legend>{% trans %} Add CD {% endtrans %}</legend>
             <div class="input text required">
                 <label for="title">{% trans %} Title {% endtrans %}</label>
-                <input type="text" name="title"  id="title"/>
+                <input type="text" name="title"  id="title" value="{{cd.title}}"/>
             </div>
             <div class="input text required">
                 <label for="record_company">{% trans %} Record company {% endtrans %}</label>
-                <input type="text" name="record_company" id="record_company"/>
+                <input type="text" name="record_company" id="record_company" value="{{cd.record_company}}"/>
             </div>
             <div class="input date required">
                 <label for="publication_date">{% trans %} Publication date {% endtrans %}</label>
-                <input type="date" name="publication_date" id="publication_date"/>
+                <input type="date" name="publication_date" id="publication_date" value="{{cd.publication_date}}"/>
             </div>
             <div class="input select required">
                 <label for="group">{% trans %} Group {% endtrans %}</label>
@@ -24,9 +24,9 @@
             </div>
             <div class="input textarea required">
                 <label for="description">{% trans %} Description {% endtrans %}</label>
-                <input type="text" name="description" id="description"/>
+                <input type="text" name="description" id="description" value="{{cd.description}}"/>
             </div>
         </fieldset>
-        <button type="submit">{% trans %} Add {% endtrans %}</button>
+        <button type="submit">{% trans %} Edit {% endtrans %}</button>
 	</form>
 </div>

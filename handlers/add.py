@@ -47,7 +47,6 @@ class AddHandler(webapp2.RequestHandler):
                 group.user = user.email()
                 group.name = self.request.get("name").strip()
                 group.genre = self.request.get("genre").strip()
-                group.foundation_date = datetime.strptime(self.request.get("foundation_date").strip(), '%Y-%m-%d')
                 group.members = self.request.get("members").strip()
 
                 # Chk
@@ -57,11 +56,18 @@ class AddHandler(webapp2.RequestHandler):
                 if len(group.genre) < 1:
                     self.redirect("/error?msg=" + "Couldn't add group: Group genre is mandatory")
                     return
-                if group.foundation_date > datetime.now():
-                    self.redirect("/error?msg=" + "Couldn't add group: Invalid date")
-                    return
                 if len(group.members) < 1:
                     self.redirect("/error?msg=" + "Couldn't add group: Group members are mandatory")
+                    return
+
+                if not self.request.get("foundation_date"):
+                    self.redirect("/error?msg=" + "Couldn't add group: Invalid date")
+                    return
+
+                group.foundation_date = datetime.strptime(self.request.get("foundation_date").strip(), '%Y-%m-%d')
+
+                if group.foundation_date > datetime.now():
+                    self.redirect("/error?msg=" + "Couldn't add group: Invalid date")
                     return
 
                 # Save

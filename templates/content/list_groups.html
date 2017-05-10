@@ -7,7 +7,7 @@
             <th>{% trans %} Members {% endtrans %}</th>
         </tr>
         {% for group in groups %}
-            <tr class="td_link" onclick="document.location = 'view_group?id={{group.key.id()}}';">
+            <tr class="td_link" onclick="document.location = 'view_group?key={{group.key.id()}}';">
                 <td>{{ group.name }}</td>
                 <td>{{ group.genre }}</td>
                 <td>{{ group.foundation_date|date_format }}</td>

@@ -9,22 +9,22 @@ import time
 class RemoveHandler(webapp2.RequestHandler):
     def get(self):
         try:
-            comment_key = self.request.get("key")
+            key = self.request.get("key")
         except:
-            comment_key = None
+            key = None
 
-        if comment_key is None:
+        if key is None:
             self.redirect("/error?msg=Missing key")
             return
 
         try:
-            comment = ndb.Key(urlsafe=comment_key).get()
+            obj = ndb.Key(urlsafe=key).get()
         except:
             self.redirect("/error?msg=Comment was not found")
             return
 
-        if users.get_current_user() and comment.user == users.get_current_user().email():
-            comment.key.delete()
+        if users.get_current_user() and obj.user == users.get_current_user().email():
+            obj.key.delete()
             time.sleep(1)
             self.redirect("/home")
 

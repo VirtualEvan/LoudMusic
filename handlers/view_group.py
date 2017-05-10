@@ -8,7 +8,7 @@ class ViewGroupHandler(webapp2.RequestHandler):
     def get(self):
         template_values = {
             "title": "View Group",
-            "group": Group.get_by_id(int(self.request.get("id"))),
+            "group": Group.get_by_id(int(self.request.get("key"))),
             "content": "view_group"
         }
 

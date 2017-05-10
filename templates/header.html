@@ -6,7 +6,11 @@
     </ul>
     <div class="top-bar-section">
         <ul class="right">
-            <li><a href="{{access_link}}"> {% trans %} Logout {% endtrans %} </a></li>
+            {% if user_name %}
+                <li><a href="{{access_link}}"> {% trans %} Logout {% endtrans %} </a></li>
+            {% else %}
+                <li><a href="{{access_link}}"> {% trans %} Login {% endtrans %} </a></li>
+            {% endif %}
 		</ul>
     </div>
 </nav>
