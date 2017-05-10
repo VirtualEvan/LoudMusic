@@ -14,3 +14,8 @@ indexes:
   properties:
   - name: user
   - name: added
+
+- kind: Comment
+  properties:
+  - name: cd
+  - name: stars

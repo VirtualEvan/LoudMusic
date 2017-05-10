@@ -4,14 +4,14 @@ from google.appengine.ext import ndb
 from classes.cd import CD
 
 import webapp2
-from evironment import JINJA_ENVIRONMENT, render
+from evironment import render
 
 
 class HomeHandler(webapp2.RequestHandler):
     def get(self):
         template_values = {
-            "user_name": users.get_current_user().nickname(),
+            "title": "Home",
             "content": "home"
         }
 
-        render(self, "home", template_values)
+        render(self, template_values)

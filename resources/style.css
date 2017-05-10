@@ -19,6 +19,14 @@ a {
     color: #15848F;
 }
 
+.td_link:hover {
+    background: #ddf1ff;
+}
+
+.td_link {
+    cursor: pointer;
+}
+
 header {
     background-color: #D33C44;
     color: #ffffff;

@@ -6,8 +6,8 @@ import webapp2
 import time
 
 
-class EditHandler(webapp2.RequestHandler):
-    def post(self):
+class RemoveHandler(webapp2.RequestHandler):
+    def get(self):
         try:
             comment_key = self.request.get("key")
         except:
@@ -24,19 +24,7 @@ class EditHandler(webapp2.RequestHandler):
             return
 
         if users.get_current_user() and comment.user == users.get_current_user().email():
-            comment.content = self.request.get("content")
-            comment.stars = int(self.request.get("stars", 0))
-
-            # Chk
-            if len(comment.content) < 1:
-                self.redirect("/error?msg=" + "Edit failed: Content is empty")
-                return
-
-            if comment.stars < 1 or comment.stars > 5:
-                self.redirect("/error?msg=" + "Edit failed: Wrong rating")
-                return
-
-            comment.put()
+            comment.key.delete()
             time.sleep(1)
             self.redirect("/home")
 

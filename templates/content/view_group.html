@@ -1,0 +1,20 @@
+<div class="large-6 columns">
+    <table class="vertical-table">
+        <tr>
+            <th>{% trans %} Name {% endtrans %}:</th>
+            <td>{{ group.name }}</td>
+        </tr>
+        <tr>
+            <th>{% trans %} Genre {% endtrans %}:</th>
+            <td>{{ group.genre }}</td>
+        </tr>
+        <tr>
+            <th>{% trans %} Foundation date {% endtrans %}:</th>
+            <td>{{ group.foundation_date|date_format }}</td>
+        </tr>
+        <tr>
+            <th>{% trans %} Members {% endtrans %}:</th>
+            <td>{{ group.members }}</td>
+        </tr>
+    </table>
+</div>

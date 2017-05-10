@@ -1,0 +1,130 @@
+<div class="large-6 columns">
+    <table class="vertical-table">
+        <tr>
+            <th>{% trans %} Title {% endtrans %}:</th>
+            <td>{{ cd.title }}</td>
+        </tr>
+        <tr>
+            <th>{% trans %} Record company {% endtrans %}:</th>
+            <td>{{ cd.record_company }}</td>
+        </tr>
+        <tr>
+            <th>{% trans %} Publication date {% endtrans %}:</th>
+            <td>{{ cd.publication_date|date_format }}</td>
+        </tr>
+        <tr>
+            <th>{% trans %} Group {% endtrans %}:</th>
+            <td>{{ cd.group.get().name }}</td>
+        </tr>
+        <tr>
+            <th>{% trans %} Description {% endtrans %}:</th>
+            <td>{{ cd.description }}</td>
+        </tr>
+        <tr>
+            <th>{% trans %} Rating {% endtrans %}:</th>
+            <td>
+                <fieldset class="view">
+                    <input type="radio" id="rating5" name="rating" value="5" /><label title="Awesome - 5 stars"></label>
+                    <input type="radio" id="rating4" name="rating" value="4" /><label title="Pretty good - 4 stars"></label>
+                    <input type="radio" id="rating3" name="rating" value="3" /><label title="Meh - 3 stars"></label>
+                    <input type="radio" id="rating2" name="rating" value="2" /><label title="Kinda bad - 2 stars"></label>
+                    <input type="radio" id="rating1" name="rating" value="1" /><label title="Sucks big time - 1 star"></label>
+                </fieldset>
+                <script type="text/javascript">
+                    document.getElementById("rating{{rating}}").checked = true;
+                </script>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div class="large-6 columns">
+    <table class="vertical-table">
+        <tr>
+            <th>{% trans %} Title {% endtrans %}:</th>
+            <td>{{ cd.title }}</td>
+        </tr>
+        <tr>
+            <th>{% trans %} Record company {% endtrans %}:</th>
+            <td>{{ cd.record_company }}</td>
+        </tr>
+        <tr>
+            <th>{% trans %} Publication date {% endtrans %}:</th>
+            <td>{{ cd.publication_date|date_format }}</td>
+        </tr>
+        <tr>
+            <th>{% trans %} Group {% endtrans %}:</th>
+            <td>{{ cd.group.get().name }}</td>
+        </tr>
+        <tr>
+            <th>{% trans %} Description {% endtrans %}:</th>
+            <td>{{ cd.description }}</td>
+        </tr>
+    </table>
+</div>
+
+<div class="form large-12 columns content">
+    <form action="/add?type=comment&cd={{cd.key.urlsafe()}}" method="post">
+        <div class="input textarea">
+            <label for="new_comment">{% trans %} New Comment {% endtrans %}</label>
+            <textarea name="new_comment" id="new_comment" rows="3" autofocus="autofocus" style="resize: none"></textarea>
+        </div>
+        <link rel="stylesheet" href="../../resources/stars.css">
+        <fieldset class="rating">
+            <input type="radio" id="star5" name="stars" value="5" /><label for="star5" title="Awesome - 5 stars"></label>
+            <input type="radio" id="star4" name="stars" value="4" /><label for="star4" title="Pretty good - 4 stars"></label>
+            <input type="radio" id="star3" name="stars" value="3" /><label for="star3" title="Meh - 3 stars"></label>
+            <input type="radio" id="star2" name="stars" value="2" /><label for="star2" title="Kinda bad - 2 stars"></label>
+            <input type="radio" id="star1" name="stars" value="1" /><label for="star1" title="Sucks big time - 1 star"></label>
+        </fieldset>
+        <button type="submit">{% trans %} Add {% endtrans %}</button>
+    </form>
+</div>
+<div class="form large-12 columns content">
+    {% for comment in comments %}
+        <form method="post" action="edit?key={{comment.key.urlsafe()}}">
+            <table>
+                <tr>
+                    <th>
+                        {{ comment.user }}
+                        {{ comment.date|date_format }}
+                        {% if comment.user == user_name %}
+                            <a onclick="javascript:edit('{{comment.key.urlsafe()}}')"> {% trans %} Edit {% endtrans %}</a>
+                            <a href="/remove?key={{comment.key.urlsafe()}}"> {% trans %} Remove {% endtrans %} </a>
+                        {% endif %}
+                    </th>
+                    <th>
+                        <fieldset class="view">
+                            <input type="radio" id="{{comment.key.urlsafe()}}5" name="stars" value="5" /><label id="{{comment.key.urlsafe()}}_label5" onclick="return false" for="{{comment.key.urlsafe()}}5" title="Awesome - 5 stars"></label>
+                            <input type="radio" id="{{comment.key.urlsafe()}}4" name="stars" value="4" /><label id="{{comment.key.urlsafe()}}_label4" onclick="return false" for="{{comment.key.urlsafe()}}4" title="Pretty good - 4 stars"></label>
+                            <input type="radio" id="{{comment.key.urlsafe()}}3" name="stars" value="3" /><label id="{{comment.key.urlsafe()}}_label3" onclick="return false" for="{{comment.key.urlsafe()}}3" title="Meh - 3 stars"></label>
+                            <input type="radio" id="{{comment.key.urlsafe()}}2" name="stars" value="2" /><label id="{{comment.key.urlsafe()}}_label2" onclick="return false" for="{{comment.key.urlsafe()}}2" title="Kinda bad - 2 stars"></label>
+                            <input type="radio" id="{{comment.key.urlsafe()}}1" name="stars" value="1" /><label id="{{comment.key.urlsafe()}}_label1" onclick="return false" for="{{comment.key.urlsafe()}}1" title="Sucks big time - 1 star"></label>
+                        </fieldset>
+                        <script type="text/javascript">
+                            document.getElementById("{{comment.key.urlsafe()}}{{comment.stars}}").checked = true;
+                        </script>
+                    </th>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <textarea disabled="disabled" id="{{comment.key.urlsafe()}}" name="content" rows="3" autofocus="autofocus" style="resize: none">{{ comment.content }}</textarea>
+                        <button style="display: none" id="{{comment.key.urlsafe()}}_hidden" type="submit">{% trans %} Edit {% endtrans %}</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    {% endfor %}
+</div>
+
+<script type="text/javascript">
+    function edit(id){
+        document.getElementById( id ).disabled = false;
+        document.getElementById( id+"_hidden" ).style.display = "table";
+        document.getElementById( id+"_label5" ).removeAttribute("onclick");
+        document.getElementById( id+"_label4" ).removeAttribute("onclick");
+        document.getElementById( id+"_label3" ).removeAttribute("onclick");
+        document.getElementById( id+"_label2" ).removeAttribute("onclick");
+        document.getElementById( id+"_label1" ).removeAttribute("onclick");
+    }
+</script>

@@ -1,0 +1,18 @@
+<div id="div-view">
+    <table>
+        <tr>
+            <th>{% trans %} Title {% endtrans %}</th>
+            <th>{% trans %} Record Company {% endtrans %}</th>
+            <th>{% trans %} Group {% endtrans %}</th>
+            <th>{% trans %} Publication date {% endtrans %}</th>
+        </tr>
+        {% for cd in cds %}
+            <tr class="td_link" style="cursor: pointer" onclick="document.location = 'view_cd?key={{cd.key.urlsafe()}}';">
+                <td>{{ cd.title }}</td>
+                <td>{{ cd.record_company }}</td>
+                <td>{{ cd.group.get().name }}</td>
+                <td>{{ cd.publication_date|date_format }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>

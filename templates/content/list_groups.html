@@ -1,0 +1,18 @@
+<div id="div-view">
+    <table>
+        <tr>
+            <th>{% trans %} Name {% endtrans %}</th>
+            <th>{% trans %} Genre {% endtrans %}</th>
+            <th>{% trans %} Foundation date {% endtrans %}</th>
+            <th>{% trans %} Members {% endtrans %}</th>
+        </tr>
+        {% for group in groups %}
+            <tr class="td_link" onclick="document.location = 'view_group?id={{group.key.id()}}';">
+                <td>{{ group.name }}</td>
+                <td>{{ group.genre }}</td>
+                <td>{{ group.foundation_date|date_format }}</td>
+                <td>{{ group.members }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>

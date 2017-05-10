@@ -1,0 +1,35 @@
+<div class="form large-12 medium-8 columns">
+	<form id="add_cd" action="/add?type=cd" method="post">
+        <fieldset>
+            <legend>{% trans %} Add CD {% endtrans %}</legend>
+            <div class="input text required">
+                <label for="title">{% trans %} Title {% endtrans %}</label>
+                <input type="text" name="title"  id="title"/>
+            </div>
+            <div class="input text required">
+                <label for="record_company">{% trans %} Record company {% endtrans %}</label>
+                <input type="text" name="record_company" id="record_company"/>
+            </div>
+            <div class="input date required">
+                <label for="publication_date">{% trans %} Publication date {% endtrans %}</label>
+                <input type="date" name="publication_date" id="publication_date"/>
+            </div>
+            <div class="input select required">
+                <label for="group">{% trans %} Group {% endtrans %}</label>
+                <select name="group" id="group">
+                    {% for group in groups %}
+                        <option value="{{ group.key.urlsafe() }}">{{group.name}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <!--TODO: TEXTAREA-->
+            <div class="input textarea required">
+                <label for="description">{% trans %} Description {% endtrans %}</label>
+                <input type="text" name="description" id="description"/>
+            </div>
+        </fieldset>
+        <button type="submit">{% trans %} Add {% endtrans %}</button>
+	</form>
+</div>
+<div id="dvError">
+</div>

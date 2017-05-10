@@ -1,8 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-<head> {% include 'header.html' %} </head>
-<body>
-    {% include 'content/%s.html' % content %}
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="../resources/style.css">
+        <link rel="stylesheet" href="../resources/base.css">
+        <title>{% trans %}{{ title }}{% endtrans %}</title>
+    </head>
+
+    <header> {% include 'header.html' %} </header>
+    <body>
+        {% include 'navbar.html'  %}
+        <div class="view large-9 medium-8 columns content">
+            <h3>{% trans %}{{ title }}{% endtrans %}</h3>
+            {% include 'content/%s.html' % content %}
+        </div>
+    </body>
 <footer> {% include 'footer.html' %} </footer>
+
 </html>

@@ -16,28 +16,49 @@
 #
 import webapp2
 from google.appengine.api import users
-from evironment import JINJA_ENVIRONMENT, render
+from evironment import JINJA_ENVIRONMENT
 
 from handlers.home import HomeHandler
+from handlers.add import AddHandler
+from handlers.add import AddCDHandler
+from handlers.add import AddGroupHandler
+from handlers.list_cds import ListCDsHandler
+from handlers.list_groups import ListGroupsHandler
+from handlers.view_cd import ViewCDHandler
+from handlers.view_group import ViewGroupHandler
+from handlers.remove import RemoveHandler
+from handlers.edit import EditHandler
+from handlers.error import ErrorHandler
 
 
 class LoginHandler(webapp2.RequestHandler):
     def get(self):
-        template_values = {
-            "title": "Login",
-            "login": "Please login",
-            "content": "login"
-        }
+        user = users.get_current_user()
+        if user is None:
+            template_values = {
+                "title": "Login",
+                "login": "Please login",
+                "access_link": users.create_login_url("/home"),
+                "content": "login"
+            }
 
-        render(self, "home", template_values)
+            template = JINJA_ENVIRONMENT.get_template("index.html")
+            self.response.write(template.render(template_values))
+        else:
+            self.redirect("/home")
 
 
 app = webapp2.WSGIApplication([
     ('/', LoginHandler),
     ('/home', HomeHandler),
-    # ('/view', ViewHandler),
-    # ('/add', AddHandler),
-    # ('/modify', EditHandler),
-    # ('/delete', DeleteHandler),
-    # ('/error', ErrorHandler)
+    ('/list_cds', ListCDsHandler),
+    ('/list_groups', ListGroupsHandler),
+    ('/view_cd', ViewCDHandler),
+    ('/view_group', ViewGroupHandler),
+    ('/add', AddHandler),
+    ('/add_cd', AddCDHandler),
+    ('/add_group', AddGroupHandler),
+    ('/edit', EditHandler),
+    ('/remove', RemoveHandler),
+    ('/error', ErrorHandler)
 ], debug=True)

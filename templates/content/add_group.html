@@ -1,0 +1,27 @@
+<div class="form large-12 medium-8 columns">
+	<form id="add_group" action="/add?type=group" method="post">
+		<fieldset>
+            <legend>{% trans %} Add Group {% endtrans %}</legend>
+            <div class="input text required">
+                <label for="name">{% trans %} Name {% endtrans %}</label>
+                <input type="text" name="name"  id="name"/>
+            </div>
+            <div class="input text required">
+                <label for="genre">{% trans %} Genre {% endtrans %}</label>
+                <input type="text" name="genre" id="genre"/>
+            </div>
+            <div class="input date required">
+                <label for="foundation_date">{% trans %} Foundation_date {% endtrans %}</label>
+                <input type="date" name="foundation_date" id="foundation_date"/>
+            </div>
+            <div class="input text required">
+                <label for="members">{% trans %} Members {% endtrans %}</label>
+                <input type="text" name="members" id="members"/>
+            </div>
+        </fieldset>
+        <button type="submit">{% trans %} Add {% endtrans %}</button>
+	</form>
+</div>
+
+<div id="dvError">
+</div>
