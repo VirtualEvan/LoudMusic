@@ -61,7 +61,7 @@ class EditGroupHandler(webapp2.RequestHandler):
             # Save
             group.put()
             time.sleep(1)
-            self.redirect("/home")
+            self.redirect("/list_groups")
 
         else:
             self.redirect("/")

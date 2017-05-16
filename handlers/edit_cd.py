@@ -78,7 +78,7 @@ class EditCDHandler(webapp2.RequestHandler):
             # Save
             cd.put()
             time.sleep(1)
-            self.redirect("/home")
+            self.redirect("/list_cds")
 
         else:
             self.redirect("/")

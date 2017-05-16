@@ -9,6 +9,7 @@ import time
 
 import webapp2
 from evironment import render
+from evironment import JINJA_ENVIRONMENT
 
 
 class AddCDHandler(webapp2.RequestHandler):
@@ -72,6 +73,8 @@ class AddHandler(webapp2.RequestHandler):
 
                 # Save
                 group.put()
+                time.sleep(1)
+                self.redirect("/list_groups")
 
             elif self.request.GET['type'] == "cd":
                 # Create cd
@@ -113,7 +116,8 @@ class AddHandler(webapp2.RequestHandler):
 
                 # Save
                 cd.put()
-
+                time.sleep(1)
+                self.redirect("/list_cds")
             elif self.request.GET['type'] == "comment":
                 # Create cd
                 comment = Comment()
@@ -135,10 +139,9 @@ class AddHandler(webapp2.RequestHandler):
 
                 # Save
                 comment.put()
+                time.sleep(1)
+                self.redirect(self.request.referrer)
 
             else:
                 self.redirect("/error?msg=" + "Invalid form")
                 return
-
-            time.sleep(1)
-            self.redirect("/home")
